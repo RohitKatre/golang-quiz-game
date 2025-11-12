@@ -92,10 +92,10 @@ func main() {
 		}
 
 		// <-time.After(time.Duration(*quizTime) * time.Second)
-		fmt.Printf("Quiz time %ds is over, clossing the quiz\n", *quizTime)
-		fmt.Printf("Total Questions: %d\n", questionCount)
-		fmt.Printf("Correct Answer: %d\n", correctAnswerCount)
-		os.Exit(0)
+		// fmt.Printf("Quiz time %ds is over, clossing the quiz\n", *quizTime)
+		// fmt.Printf("Total Questions: %d\n", questionCount)
+		// fmt.Printf("Correct Answer: %d\n", correctAnswerCount)
+		// os.Exit(0)
 	}()
 
 	for _, quiz := range fileData {
