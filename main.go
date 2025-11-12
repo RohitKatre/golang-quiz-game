@@ -50,9 +50,7 @@ func read_csv(file_path string) ([]Quiz, error) {
 	}
 }
 
-func main() {
-	quizTime := flag.Int("quiz-timer", 2, "duration of the quiz, default is 30s")
-	shuffel := flag.Bool("shuffel", false, "Shuffel the quiz question, defalult is false")
+func readAllAndExecuetLineByLine(quizTime *int, shuffel *bool) {
 
 	filepath := "data/problems.csv"
 	fileData, fileReadErr := read_csv(filepath)
@@ -112,5 +110,18 @@ func main() {
 	done <- true // stopping the timer
 	fmt.Printf("Total Questions: %d\n", questionCount)
 	fmt.Printf("Correct Answers: %d\n", correctAnswerCount)
+}
 
+func main() {
+	quizTime := flag.Int("timer", 30, "duration of the quiz, default is 30s")
+	shuffel := flag.Bool("shuffel", false, "Shuffel the quiz question, defalult is false")
+	flag.Parse()
+	fmt.Println("provided timer is", *quizTime)
+
+	readAll := 0
+	if readAll == 1 {
+		readAllAndExecuetLineByLine(quizTime, shuffel)
+	} else {
+		ReadAndExecuteLineByline(quizTime)
+	}
 }
